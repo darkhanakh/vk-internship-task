@@ -1,5 +1,18 @@
 .listContainer {
     height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+}
+
+.sortControls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.scrollContainer {
+    flex-grow: 1;
     overflow-y: auto;
 }
 
@@ -7,4 +20,8 @@
     display: flex;
     justify-content: center;
     padding: 20px 0;
+}
+
+.errorAlert {
+    margin-bottom: 16px;
 }
