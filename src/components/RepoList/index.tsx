@@ -72,7 +72,7 @@ const RepoList: React.FC = observer(() => {
               dataSource={repoStore.repos}
               renderItem={(repo) => (
                   <RepoItem
-                      key={repo.id}
+                      key={`${repo.id}-${repo.name}`}
                       repo={repo}
                       onEdit={repoStore.editRepo}
                       onDelete={repoStore.deleteRepo}

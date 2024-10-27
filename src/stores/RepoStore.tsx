@@ -82,28 +82,34 @@ class RepoStore {
   };
 
   editRepo = (id: number, newName: string) => {
-    const index = this.repos.findIndex((repo) => repo.id === id);
-    if (index !== -1) {
-      this.repos[index] = { ...this.repos[index], name: newName };
-      this.saveToLocalStorage();
-    }
+    runInAction(() => {
+      const index = this.repos.findIndex((repo) => repo.id === id);
+      if (index !== -1) {
+        this.repos[index] = { ...this.repos[index], name: newName };
+        this.saveToLocalStorage();
+      }
+    });
   };
 
   deleteRepo = (id: number) => {
-    this.repos = this.repos.filter((repo) => repo.id !== id);
-    this.saveToLocalStorage();
+    runInAction(() => {
+      this.repos = this.repos.filter((repo) => repo.id !== id);
+      this.saveToLocalStorage();
+    });
   };
 
   resetToDefault = () => {
-    this.repos = [];
-    this.page = 1;
-    this.sortField = 'stars';
-    this.sortOrder = 'desc';
-    this.error = null;
-    localStorage.removeItem('repos');
-    localStorage.removeItem('sortField');
-    localStorage.removeItem('sortOrder');
-    this.fetchRepos();
+    runInAction(() => {
+      this.repos = [];
+      this.page = 1;
+      this.sortField = 'stars';
+      this.sortOrder = 'desc';
+      this.error = null;
+      localStorage.removeItem('repos');
+      localStorage.removeItem('sortField');
+      localStorage.removeItem('sortOrder');
+      this.fetchRepos();
+    });
   };
 }
 

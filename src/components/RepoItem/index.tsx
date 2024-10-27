@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
 import { Card, Button, Input, Modal, Typography, Space } from 'antd';
 import { EditOutlined, DeleteOutlined, StarOutlined } from '@ant-design/icons';
 import { Repo } from '../../types/Repo';
@@ -12,9 +13,13 @@ interface RepoItemProps {
   onDelete: (id: number) => void;
 }
 
-const RepoItem: React.FC<RepoItemProps> = ({ repo, onEdit, onDelete }) => {
+const RepoItem: React.FC<RepoItemProps> = observer(({ repo, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState(repo.name);
+
+  useEffect(() => {
+    setNewName(repo.name);
+  }, [repo.name]);
 
   const handleEdit = () => {
     onEdit(repo.id, newName);
@@ -42,7 +47,7 @@ const RepoItem: React.FC<RepoItemProps> = ({ repo, onEdit, onDelete }) => {
                     autoFocus
                 />
             ) : (
-                <Text strong className={styles.repoName}>{repo.name}</Text>
+                <Text strong className={styles.repoName}>{newName}</Text>
             )}
             <Paragraph ellipsis={{ rows: 2 }} className={styles.repoDescription}>
               {repo.description}
@@ -63,6 +68,6 @@ const RepoItem: React.FC<RepoItemProps> = ({ repo, onEdit, onDelete }) => {
         </div>
       </Card>
   );
-};
+});
 
 export default RepoItem;
