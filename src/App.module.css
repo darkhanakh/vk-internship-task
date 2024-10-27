@@ -4,13 +4,16 @@
 
 .header {
     background-color: #001529;
-    padding: 0 20px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
 }
 
 .header h1 {
     color: white;
+    margin: 0;
 }
 
 .content {
-    padding: 20px;
+    height: calc(100vh - 64px);
 }

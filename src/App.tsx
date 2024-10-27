@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
       <Layout className={styles.layout}>
         <Header className={styles.header}>
-          <h1>Список Репозиториев</h1>
+          <h1>GitHub Repositories Viewer</h1>
         </Header>
         <Content className={styles.content}>
           <RepoList />
