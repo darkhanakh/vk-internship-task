@@ -7,7 +7,7 @@ export type SortField = 'stars' | 'name' | 'updated';
 export type SortOrder = 'asc' | 'desc';
 
 class RepoStore {
-  repos: Repo[] = [];
+  repos: ({ name: string; id: number; stars: number } | { name: string; id: number; stars: number })[] = [];
   loading = false;
   page = 1;
   sortField: SortField = 'stars';
