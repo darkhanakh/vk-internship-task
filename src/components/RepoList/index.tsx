@@ -4,6 +4,7 @@ import { List, Spin, Select, Alert, Button, Typography } from 'antd';
 import { ReloadOutlined } from '@ant-design/icons';
 import { useRepoStore, SortField, SortOrder } from '../../stores/RepoStore';
 import RepoItem from '../RepoItem';
+import { Repo } from '../../types/Repo';
 import styles from './RepoList.module.css';
 
 const { Option } = Select;
@@ -70,7 +71,7 @@ const RepoList: React.FC = observer(() => {
         <div onScroll={handleScroll} className={styles.scrollContainer}>
           <List
               dataSource={repoStore.repos}
-              renderItem={(repo) => (
+              renderItem={(repo: Repo) => (
                   <RepoItem
                       key={`${repo.id}-${repo.name}`}
                       repo={repo}

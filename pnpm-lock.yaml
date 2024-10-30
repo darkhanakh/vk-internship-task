@@ -87,6 +87,9 @@ importers:
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@22.8.1)(ts-node@10.9.2(@swc/core@1.7.40)(@types/node@22.8.1)(typescript@5.6.3))
+      jest-css-modules:
+        specifier: ^2.1.0
+        version: 2.1.0
       ts-jest:
         specifier: ^29.2.5
         version: 29.2.5(@babel/core@7.26.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.0))(jest@29.7.0(@types/node@22.8.1)(ts-node@10.9.2(@swc/core@1.7.40)(@types/node@22.8.1)(typescript@5.6.3)))(typescript@5.6.3)
@@ -2184,6 +2187,9 @@ packages:
         optional: true
       ts-node:
         optional: true
+
+  jest-css-modules@2.1.0:
+    resolution: {integrity: sha512-my3Scnt6l2tOll/eGwNZeh1KLAFkNzdl4MyZRdpl46GO6/93JcKKdTjNqK6Nokg8A8rT84MFLOpY1pzqKBEqMw==}
 
   jest-diff@29.7.0:
     resolution: {integrity: sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==}
@@ -5715,6 +5721,10 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
+
+  jest-css-modules@2.1.0:
+    dependencies:
+      identity-obj-proxy: 3.0.0
 
   jest-diff@29.7.0:
     dependencies:
